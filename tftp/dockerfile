@@ -4,3 +4,5 @@ RUN apk -U add dnsmasq && rm -rf /var/cache/apk/*
 VOLUME /tftp
 EXPOSE 69/udp
 ENTRYPOINT ["dnsmasq", "-k", "--enable-tftp", "--tftp-root=/tftp"]
+
+docker build -t dnsmasq/tftp .
