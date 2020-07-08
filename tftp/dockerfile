@@ -1,0 +1,6 @@
+FROM alpine:latest
+MAINTAINER ADMIN@ADMIN.COM
+RUN apk -U add dnsmasq && rm -rf /var/cache/apk/*
+VOLUME /tftp
+EXPOSE 69/udp
+ENTRYPOINT ["dnsmasq", "-k", "--enable-tftp", "--tftp-root=/tftp"]
